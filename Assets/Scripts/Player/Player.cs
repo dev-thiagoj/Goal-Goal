@@ -4,10 +4,8 @@ using TMPro;
 
 public class Player : MonoBehaviour
 {
-    public Player player;
-    //public Player player02;
-
-    public Vector2 initialPosition;
+    public Player player; 
+   
     private float speed = 40;
     public Image uiPlayer;
     public string playerName;
@@ -34,21 +32,25 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         ResetPlayer();
-        player.transform.position = initialPosition;
+        
     }
 
+    void Start() {
+        
+        //player.transform.position = initialPosition;
+    }
 
     void Update()
     {
-        if (player.transform.position.x < leftBound)
+        /*if (myRigidBody2d.position.x < leftBound)
         {
-            player.transform.position = new Vector3(leftBound, transform.position.y);
+            player.transform.position = new Vector2(this.leftBound, transform.position.y);
         }
 
-        if (player.transform.position.x > rightBound)
+        if (myRigidBody2d.position.x > rightBound)
         {
-            player.transform.position = new Vector3(rightBound, transform.position.y);
-        }   
+            player.transform.position = new Vector2(this.rightBound, transform.position.y);
+        }*/
         
         PlayerMovement();       
 
@@ -83,28 +85,18 @@ public class Player : MonoBehaviour
         
     }
 
-    /*public void Player02Movement(){
-
-        if(player02.myRigidBody2d.position.x < rightBound && player01.myRigidBody2d.position.x > leftBound){
-
-            if (Input.GetKey(KeyCodeMoveUp))
-            {
-                player02.myRigidBody2d.MovePosition(transform.position + transform.up * speed * Time.deltaTime * 100);
-            }
-            else if (Input.GetKey(KeyCodeMoveDown))
-            {
-                player02.myRigidBody2d.MovePosition(transform.position + transform.up * -speed * Time.deltaTime * 100);
-            }
-            else if (Input.GetKey(KeyCodeMoveLeft))
-            {
-                player02.myRigidBody2d.MovePosition(transform.position + transform.right * -speed * Time.deltaTime * 100);
-            }
-            else if (Input.GetKey(KeyCodeMoveRight))
-            {
-                player02.myRigidBody2d.MovePosition(transform.position + transform.right * speed * Time.deltaTime * 100);
-            }
-
+    /*private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.transform.CompareTag("RightBound"))
+        {            
+            transform.position = new Vector2(rightBopund, transform.position.y);
         }
+
+        if (collision.transform.CompareTag("LeftBound"))
+        {            
+            transform.position = new Vector2(leftBound, transform.position.y);
+        }
+       
     }*/
     
     public void SetName(string s)

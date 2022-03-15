@@ -50,27 +50,29 @@ public class BallBase : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            //esse speed.x *= -1 seria para sem randomização
+            //esse speed.x *= -1 seria para sem randomizaï¿½ï¿½o
             //speed.x *= -1;
-            OnPlayercollision();
+            OnPlayerCollision();
         }
 
-        else
+        else if(collision.gameObject.CompareTag("Wall"))
         {
             speed.y *= -1;
         }
 
+        else return;
+
     }
 
-    //randomiza a velocidade da bola a cada colisão
-    private void OnPlayercollision()
+    //randomiza a velocidade da bola a cada colisï¿½o
+    private void OnPlayerCollision()
     {
         speed.x *= -1;
 
-        // neste float está sendo pedido um random em x
+        // neste float estï¿½ sendo pedido um random em x
         float rand = Random.Range(randSpeedX.x, randSpeedX.y);
 
-        // este checador é para sempre manter a ball na direçao contraria qdo colidir
+        // este checador ï¿½ para sempre manter a ball na direï¿½ao contraria qdo colidir
         if(speed.x < 0)
         {
             rand *= -1;
@@ -78,7 +80,7 @@ public class BallBase : MonoBehaviour
         
         speed.x = rand;
 
-        // neste float está sendo pedido um random em y
+        // neste float estï¿½ sendo pedido um random em y
         rand = Random.Range(randSpeedY.x, randSpeedY.y);
         speed.y = rand;
     }
@@ -105,7 +107,7 @@ public class BallBase : MonoBehaviour
     public void ResetBall()
     {
         transform.position = _startPosition;
-        speed = new Vector3(Random.Range(-15, 15), Random.Range(-15, 15), 0);
+        speed = new Vector2(Random.Range(-15, 15), Random.Range(-15, 15)).normalized;
     }
 
     public void CanMove(bool state)
