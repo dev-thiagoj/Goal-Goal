@@ -938,8 +938,8 @@ MonoBehaviour:
   initialBackground: {fileID: 1440135015}
   endgameBackground: {fileID: 657513731}
   rulesBackground: {fileID: 800585245}
-  endPoint: 5
-  timeToSetBallFree: 5
+  endPoint: 1
+  timeToSetBallFree: 3
 --- !u!4 &409220370
 Transform:
   m_ObjectHideFlags: 0
@@ -1989,7 +1989,7 @@ MonoBehaviour:
   ball: {fileID: 1215735673}
   boundary: 2000
   randSpeedY: {x: -10, y: 20}
-  randSpeedX: {x: 5, y: 20}
+  randSpeedX: {x: 10, y: 20}
   _canmove: 0
 --- !u!50 &1215735676
 Rigidbody2D:
@@ -2495,6 +2495,7 @@ GameObject:
   - component: {fileID: 1319502568}
   - component: {fileID: 1319502570}
   - component: {fileID: 1319502569}
+  - component: {fileID: 1319502571}
   m_Layer: 5
   m_Name: TextPunishment
   m_TagString: Untagged
@@ -2541,7 +2542,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Rodopiar 10x e colocar o dedo indicador na ponta do nariz ao final
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2618,6 +2619,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1319502567}
   m_CullTransparentMesh: 1
+--- !u!114 &1319502571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1319502567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db2958550c32bd24e94efcf9c4239c7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiTextPunishment: {fileID: 1319502569}
 --- !u!1 &1334751327
 GameObject:
   m_ObjectHideFlags: 0
