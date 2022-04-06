@@ -2,17 +2,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class Player : MonoBehaviour
+public class Test_RayCast : MonoBehaviour
 {
-    public Player player; 
-   
+    public Player player;
+
     private float speed = 40;
     public Image uiPlayer;
     public string playerName;
-    //public Vector3 initialPosition;
-
-    [Header("Limits in X")]
-    public Vector2 limitsX = new Vector2(-4f, 4f);
+    public Vector3 initialPosition;
 
     [Header("Key Setup")]
     public KeyCode KeyCodeMoveUp = KeyCode.UpArrow;
@@ -32,31 +29,33 @@ public class Player : MonoBehaviour
     public Rigidbody2D myRigidBody2d;
     public int currentPoints;
 
-    private Vector3 _pos;
-
 
     private void Awake()
     {
         ResetPlayer();
-        //initialPosition = transform.position;
+        initialPosition = transform.position;
     }
 
-    void Start() {
-        
+    void Start()
+    {
+
         //player.transform.position = initialPosition;
     }
 
     void Update()
     {
-        _pos.y = myRigidBody2d.transform.position.y;
-        _pos.x = myRigidBody2d.transform.position.x;
+        /*if (myRigidBody2d.position.x < leftBound)
+        {
+            player.transform.position = new Vector2(this.leftBound, transform.position.y);
+        }
 
-        if (_pos.x < limitsX.x) _pos.x = limitsX.x;
-        else if (_pos.x > limitsX.y) _pos.x = limitsX.y;
-
-        myRigidBody2d.transform.position = _pos;
+        if (myRigidBody2d.position.x > rightBound)
+        {
+            player.transform.position = new Vector2(this.rightBound, transform.position.y);
+        }*/
 
         PlayerMovement();
+
         FinalPoint();
     }
 
@@ -66,7 +65,8 @@ public class Player : MonoBehaviour
         UpdateUI();
     }
 
-    private void PlayerMovement(){
+    private void PlayerMovement()
+    {
 
         if (Input.GetKey(KeyCodeMoveUp))
         {
@@ -84,8 +84,24 @@ public class Player : MonoBehaviour
         {
             myRigidBody2d.MovePosition(transform.position + transform.right * speed * Time.deltaTime * 100);
         }
+
+
     }
-    
+
+    /*private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.transform.CompareTag("RightBound"))
+        {            
+            transform.position = new Vector2(rightBopund, transform.position.y);
+        }
+
+        if (collision.transform.CompareTag("LeftBound"))
+        {            
+            transform.position = new Vector2(leftBound, transform.position.y);
+        }
+       
+    }*/
+
     public void SetName(string s)
     {
         playerName = s;
@@ -99,7 +115,7 @@ public class Player : MonoBehaviour
     public void AddPoint()
     {
         currentPoints++;
-        UpdateUI();        
+        UpdateUI();
     }
 
     private void UpdateUI()

@@ -6,6 +6,12 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    //Resetar posição dos players a cada ponto
+    //melhorar speed randomico da bola (as vezes fica mto lento e com angulo y mto acentuado
+    //melhorar a colisão com as linhas para que estas nao alterem a direção da bola
+    //fazer mais cena (scn_menu, scn_play, scn_endgame)...verificar se nao da conflito com a state machine
+    
+    
     public BallBase ballBase;
     private Player player;
     public StateMachine stateMachine;

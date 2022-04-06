@@ -6,9 +6,7 @@ public class BallBase : MonoBehaviour
     private Vector3 startSpeed;
     public GameObject ball;
     public int boundary = 1000;
-
-
-    //public string keyToCheck = "Player";
+    private Player player;
 
     [Header("Randomization")]
     public Vector2 randSpeedY = new Vector2(1, 10);
@@ -16,7 +14,6 @@ public class BallBase : MonoBehaviour
 
     private Vector3 _startPosition;
     public bool _canmove = false;
-    //private bool _setActive = false;
 
     private void Awake()
     {
@@ -25,7 +22,8 @@ public class BallBase : MonoBehaviour
         speed = new Vector3(Random.Range(-15, 15), Random.Range(-15, 15), 0);
         startSpeed = speed;
 
-        
+        //testar esse para reiniciar posição dos players a cada ResetBall()!!!
+        //player = FindObjectOfType<GameObject>().GetComponent<Player>();
     }
 
     //adiciona movimento a ball
@@ -43,15 +41,14 @@ public class BallBase : MonoBehaviour
         {
             speed.y = Random.Range(-15, 15);
         }
+        
     }
 
     //inverte o deslocamento da ball qdo colide com as bordas e/ou player
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
-        {
-            //esse speed.x *= -1 seria para sem randomiza��o
-            //speed.x *= -1;
+        {            
             OnPlayerCollision();
         }
 
@@ -64,15 +61,12 @@ public class BallBase : MonoBehaviour
 
     }
 
-    //randomiza a velocidade da bola a cada colis�o
     private void OnPlayerCollision()
     {
         speed.x *= -1;
 
-        // neste float est� sendo pedido um random em x
         float rand = Random.Range(randSpeedX.x, randSpeedX.y);
 
-        // este checador � para sempre manter a ball na dire�ao contraria qdo colidir
         if(speed.x < 0)
         {
             rand *= -1;
@@ -80,7 +74,6 @@ public class BallBase : MonoBehaviour
         
         speed.x = rand;
 
-        // neste float est� sendo pedido um random em y
         rand = Random.Range(randSpeedY.x, randSpeedY.y);
         speed.y = rand;
     }
@@ -108,6 +101,7 @@ public class BallBase : MonoBehaviour
     {
         transform.position = _startPosition;
         speed = new Vector2(Random.Range(-15, 15), Random.Range(-15, 15)).normalized;
+        //player.transform.position = player.initialPosition;
     }
 
     public void CanMove(bool state)
