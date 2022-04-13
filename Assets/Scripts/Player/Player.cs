@@ -6,7 +6,7 @@ public class Player : MonoBehaviour
 {
     public Player player; 
    
-    private float speed = 40;
+    private readonly float speed = 40;
     public Image uiPlayer;
     public string playerName;
     //public Vector3 initialPosition;
@@ -23,11 +23,11 @@ public class Player : MonoBehaviour
 
     [Header("Texts")]
     public TextMeshProUGUI uiTextPoints;
-    public TextMeshProUGUI uiTextEndGame;
+    //public TextMeshProUGUI uiTextEndGame;
 
-    [Header("Boundaries")]
+    /*[Header("Boundaries")]
     public float leftBound;
-    public float rightBound;
+    public float rightBound;*/
 
     public GameManager gameManager;
     public Rigidbody2D myRigidBody2d;
@@ -47,6 +47,7 @@ public class Player : MonoBehaviour
         Bounds();
         PlayerMovement();
         FinalPoint();
+        
     }
 
     public void ResetPlayer()
@@ -86,10 +87,10 @@ public class Player : MonoBehaviour
         myRigidBody2d.transform.position = _pos;
     }
     
-    public void SetName(string s)
+    /*public void SetName(string s)
     {
-        playerName = s;
-    }
+        player.name = s;
+    }*/
 
     public void ChangeColor(Color c)
     {
@@ -111,6 +112,7 @@ public class Player : MonoBehaviour
     {
         if (currentPoints == gameManager.endPoint)
         {
+            //player.name = (string) playerName;
             gameManager.ChangeStateToEnd();
         }
     }

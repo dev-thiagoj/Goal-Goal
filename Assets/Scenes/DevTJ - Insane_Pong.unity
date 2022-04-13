@@ -938,6 +938,7 @@ MonoBehaviour:
   initialBackground: {fileID: 1440135015}
   endgameBackground: {fileID: 657513731}
   rulesBackground: {fileID: 800585245}
+  winnerAnnouncer: {fileID: 1628675190}
   endPoint: 1
   timeToSetBallFree: 3
 --- !u!4 &409220370
@@ -3704,7 +3705,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "JOGADOR X \xC9 O VENCEDOR"
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

@@ -1,6 +1,5 @@
 using UnityEngine;
 using TMPro;
-
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -22,6 +21,8 @@ public class GameManager : MonoBehaviour
     public GameObject endgameBackground;
     public GameObject rulesBackground;
 
+    public TextMeshProUGUI winnerAnnouncer;
+
     public int endPoint = 5;
     public static GameManager Instance;
 
@@ -30,15 +31,14 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        rulesBackground.gameObject.SetActive(false);
-        initialBackground.gameObject.SetActive(true);
-        endgameBackground.gameObject.SetActive(false);
+
+        player = GetComponent<Player>();
+
+        rulesBackground.SetActive(false);
+        initialBackground.SetActive(true);
+        endgameBackground.SetActive(false);
     }
 
-    private void Update()
-    {
-        
-    }
     public void SwithStateReset()
     {
         stateMachine.ResetPosition();
@@ -58,14 +58,14 @@ public class GameManager : MonoBehaviour
 
     public void ExitRulesBackground()
     {
-        rulesBackground.gameObject.SetActive(false);
-        initialBackground.gameObject.SetActive(true);
+        rulesBackground.SetActive(false);
+        initialBackground.SetActive(true);
     }
 
     public void StartGame()
     {        
-        initialBackground.gameObject.SetActive(false);
-        endgameBackground.gameObject.SetActive(false);
+        initialBackground.SetActive(false);
+        endgameBackground.SetActive(false);
         
         ballBase.ball.SetActive(true);
         //ballBase.CanMove(true);
@@ -76,7 +76,14 @@ public class GameManager : MonoBehaviour
     {
         ballBase.ball.SetActive(false);
         ballBase.CanMove(false);
-        endgameBackground.gameObject.SetActive(true);
+        endgameBackground.SetActive(true);
+
+        UpdateWinnerText();
+    }
+
+    public void UpdateWinnerText()
+    {
+        //winnerAnnouncer.text = (string) player.playerName + " é o vencedor!";
     }
 
     public void RestartGame()

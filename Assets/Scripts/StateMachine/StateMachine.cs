@@ -24,12 +24,14 @@ public class StateMachine : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        
-        dictionaryState = new Dictionary<States, StateBase>();
-        dictionaryState.Add(States.MENU, new StateBase());
-        dictionaryState.Add(States.PLAYING, new StatePlaying());
-        dictionaryState.Add(States.RESET_POSITION, new StateResetPosition());
-        dictionaryState.Add(States.END_GAME, new StateEndGame());
+
+        dictionaryState = new Dictionary<States, StateBase>
+        {
+            { States.MENU, new StateBase() },
+            { States.PLAYING, new StatePlaying() },
+            { States.RESET_POSITION, new StateResetPosition() },
+            { States.END_GAME, new StateEndGame() }
+        };
 
         SwitchState(States.MENU);
 

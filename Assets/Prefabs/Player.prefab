@@ -93,14 +93,14 @@ MonoBehaviour:
   player: {fileID: 0}
   uiPlayer: {fileID: 990048279503635236}
   playerName: 
+  limitsX: {x: -4, y: 4}
+  limitsY: {x: -4, y: 4}
   KeyCodeMoveUp: 119
   KeyCodeMoveDown: 115
   KeyCodeMoveLeft: 276
   KeyCodeMoveRight: 275
   uiTextPoints: {fileID: 0}
   uiTextEndGame: {fileID: 0}
-  leftBound: 0
-  rightBound: 0
   gameManager: {fileID: 0}
   myRigidBody2d: {fileID: 5418368606455337082}
   currentPoints: 0

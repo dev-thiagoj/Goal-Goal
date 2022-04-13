@@ -6,7 +6,7 @@ public class Test_RayCast : MonoBehaviour
 {
     public Player player;
 
-    private float speed = 40;
+    private readonly float speed = 40;
     public Image uiPlayer;
     public string playerName;
     public Vector3 initialPosition;
@@ -34,12 +34,6 @@ public class Test_RayCast : MonoBehaviour
     {
         ResetPlayer();
         initialPosition = transform.position;
-    }
-
-    void Start()
-    {
-
-        //player.transform.position = initialPosition;
     }
 
     void Update()
@@ -70,19 +64,19 @@ public class Test_RayCast : MonoBehaviour
 
         if (Input.GetKey(KeyCodeMoveUp))
         {
-            myRigidBody2d.MovePosition(transform.position + transform.up * speed * Time.deltaTime * 100);
+            myRigidBody2d.MovePosition(transform.position + 100 * speed * Time.deltaTime * transform.up);
         }
         else if (Input.GetKey(KeyCodeMoveDown))
         {
-            myRigidBody2d.MovePosition(transform.position + transform.up * -speed * Time.deltaTime * 100);
+            myRigidBody2d.MovePosition(transform.position + 100 * -speed * Time.deltaTime * transform.up);
         }
         else if (Input.GetKey(KeyCodeMoveLeft))
         {
-            myRigidBody2d.MovePosition(transform.position + transform.right * -speed * Time.deltaTime * 100);
+            myRigidBody2d.MovePosition(transform.position + 100 * -speed * Time.deltaTime * transform.right);
         }
         else if (Input.GetKey(KeyCodeMoveRight))
         {
-            myRigidBody2d.MovePosition(transform.position + transform.right * speed * Time.deltaTime * 100);
+            myRigidBody2d.MovePosition(transform.position + 100 * speed * Time.deltaTime * transform.right);
         }
 
 

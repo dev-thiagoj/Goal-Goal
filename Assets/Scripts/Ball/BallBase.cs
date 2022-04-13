@@ -6,7 +6,7 @@ public class BallBase : MonoBehaviour
     private Vector3 startSpeed;
     public GameObject ball;
     public int boundary = 1000;
-    private Player player;
+    //private Player player;
 
     [Header("Randomization")]
     public Vector2 randSpeedY = new Vector2(1, 10);
@@ -30,7 +30,9 @@ public class BallBase : MonoBehaviour
     void Update()
     {
         if (!_canmove) return;
-        transform.Translate(speed * 100 * Time.deltaTime);
+
+        transform.Translate(100 * Time.deltaTime * speed);
+        
         Boundary(true);
 
         if(speed.x == 0)
