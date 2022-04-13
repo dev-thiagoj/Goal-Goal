@@ -13,10 +13,10 @@ public class PunishmentsBase : MonoBehaviour
     {
         punishments[0] = "Colocar dois dedos dentro de uma narina";
         punishments[1] = "Girar 10x e no fim por o indicador na ponta do nariz";
-        punishments[2] = "teste 01";
-        punishments[3] = "teste 02";
-        punishments[4] = "teste 03";
-        punishments[5] = "teste 04";
+        punishments[2] = "Realizar 20 polichinelos";
+        punishments[3] = "Fazer a careta mais feia, tirar foto e publicar na rede social favorita";
+        punishments[4] = "Ajoelhar e pedir perdão ao vencedor por ter tentado desafiá-lo";
+        punishments[5] = "Dar 3 voltas completas no vencedor pulando em um pé só";
         punishments[6] = "teste 05";
         punishments[7] = "teste 06";
         punishments[8] = "teste 07";
@@ -27,12 +27,6 @@ public class PunishmentsBase : MonoBehaviour
     void Start()
     {
         GetPunishment();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void GetPunishment()

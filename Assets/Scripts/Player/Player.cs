@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
 
     [Header("Limits in X")]
     public Vector2 limitsX = new Vector2(-4f, 4f);
+    public Vector2 limitsY = new Vector2(-4f, 4f);
 
     [Header("Key Setup")]
     public KeyCode KeyCodeMoveUp = KeyCode.UpArrow;
@@ -41,21 +42,9 @@ public class Player : MonoBehaviour
         //initialPosition = transform.position;
     }
 
-    void Start() {
-        
-        //player.transform.position = initialPosition;
-    }
-
     void Update()
     {
-        _pos.y = myRigidBody2d.transform.position.y;
-        _pos.x = myRigidBody2d.transform.position.x;
-
-        if (_pos.x < limitsX.x) _pos.x = limitsX.x;
-        else if (_pos.x > limitsX.y) _pos.x = limitsX.y;
-
-        myRigidBody2d.transform.position = _pos;
-
+        Bounds();
         PlayerMovement();
         FinalPoint();
     }
@@ -66,24 +55,35 @@ public class Player : MonoBehaviour
         UpdateUI();
     }
 
-    private void PlayerMovement(){
+    private void PlayerMovement()
+    {
 
-        if (Input.GetKey(KeyCodeMoveUp))
-        {
-            myRigidBody2d.MovePosition(transform.position + transform.up * speed * Time.deltaTime * 100);
-        }
-        else if (Input.GetKey(KeyCodeMoveDown))
-        {
-            myRigidBody2d.MovePosition(transform.position + transform.up * -speed * Time.deltaTime * 100);
-        }
-        else if (Input.GetKey(KeyCodeMoveLeft))
-        {
-            myRigidBody2d.MovePosition(transform.position + transform.right * -speed * Time.deltaTime * 100);
-        }
-        else if (Input.GetKey(KeyCodeMoveRight))
-        {
-            myRigidBody2d.MovePosition(transform.position + transform.right * speed * Time.deltaTime * 100);
-        }
+        float moveX = 0f;
+        float moveY = 0f;
+
+        if (Input.GetKey(KeyCodeMoveUp)) moveY = +1f;
+        if (Input.GetKey(KeyCodeMoveDown)) moveY = -1f;
+        if (Input.GetKey(KeyCodeMoveRight)) moveX = +1f;
+        if (Input.GetKey(KeyCodeMoveLeft)) moveX = -1f;
+
+        Vector3 moveDir = new Vector3(moveX, moveY).normalized;
+
+        transform.position += 15 * speed * Time.deltaTime * moveDir;
+
+    }
+
+    public void Bounds()
+    {
+        _pos.y = myRigidBody2d.transform.position.y;
+        _pos.x = myRigidBody2d.transform.position.x;
+
+        if (_pos.x < limitsX.x) _pos.x = limitsX.x;
+        else if (_pos.x > limitsX.y) _pos.x = limitsX.y;
+
+        if (_pos.y < limitsY.x) _pos.y = limitsY.x;
+        else if (_pos.y > limitsY.y) _pos.y = limitsY.y;
+
+        myRigidBody2d.transform.position = _pos;
     }
     
     public void SetName(string s)

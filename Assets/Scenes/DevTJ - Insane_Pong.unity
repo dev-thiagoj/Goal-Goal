@@ -2806,11 +2806,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 990048279503635237, guid: 2a600bad8ad650a42b26d0aa6c533bd9, type: 3}
       propertyPath: limitsY.x
-      value: -436
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 990048279503635237, guid: 2a600bad8ad650a42b26d0aa6c533bd9, type: 3}
       propertyPath: limitsY.y
-      value: 436
+      value: 980
       objectReference: {fileID: 0}
     - target: {fileID: 990048279503635237, guid: 2a600bad8ad650a42b26d0aa6c533bd9, type: 3}
       propertyPath: playerName
@@ -4776,11 +4776,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 990048279503635237, guid: 2a600bad8ad650a42b26d0aa6c533bd9, type: 3}
       propertyPath: limitsY.x
-      value: -436
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 990048279503635237, guid: 2a600bad8ad650a42b26d0aa6c533bd9, type: 3}
       propertyPath: limitsY.y
-      value: 436
+      value: 980
       objectReference: {fileID: 0}
     - target: {fileID: 990048279503635237, guid: 2a600bad8ad650a42b26d0aa6c533bd9, type: 3}
       propertyPath: playerName
