@@ -8,6 +8,10 @@ public class BallBase : MonoBehaviour
     public int boundary = 1000;
     //private Player player;
 
+    [Header("Limits")]
+    //public Vector2 limitsX = new Vector2(-4f, 4f);
+    public Vector2 limitsY = new Vector2(-4f, 4f);
+
     [Header("Randomization")]
     public Vector2 randSpeedY = new Vector2(1, 10);
     public Vector2 randSpeedX = new Vector2(1, 10);
@@ -16,14 +20,11 @@ public class BallBase : MonoBehaviour
     public bool _canmove = false;
 
     private void Awake()
-    {
+    {   
         ball.SetActive(false);
         _startPosition = transform.position;
         speed = new Vector3(Random.Range(-15, 15), Random.Range(-15, 15), 0);
         startSpeed = speed;
-
-        //testar esse para reiniciar posição dos players a cada ResetBall()!!!
-        //player = FindObjectOfType<GameObject>().GetComponent<Player>();
     }
 
     //adiciona movimento a ball
@@ -97,12 +98,12 @@ public class BallBase : MonoBehaviour
         {
             return;
         }
-    }    
+    }
 
     public void ResetBall()
     {
         transform.position = _startPosition;
-        speed = new Vector2(Random.Range(-15, 15), Random.Range(-15, 15)).normalized;
+        speed = new Vector2(Random.Range(-15, 15), Random.Range(-15, 15));
         //player.transform.position = player.initialPosition;
     }
 

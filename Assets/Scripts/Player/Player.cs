@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     public string playerName;
     //public Vector3 initialPosition;
 
-    [Header("Limits in X")]
+    [Header("Limits")]
     public Vector2 limitsX = new Vector2(-4f, 4f);
     public Vector2 limitsY = new Vector2(-4f, 4f);
 
@@ -34,10 +34,12 @@ public class Player : MonoBehaviour
     public int currentPoints;
 
     private Vector3 _pos;
+    
 
 
     private void Awake()
     {
+        
         ResetPlayer();
         //initialPosition = transform.position;
     }
@@ -69,7 +71,7 @@ public class Player : MonoBehaviour
 
         Vector3 moveDir = new Vector3(moveX, moveY).normalized;
 
-        transform.position += 15 * speed * Time.deltaTime * moveDir;
+        transform.position += 20 * speed * Time.deltaTime * moveDir;
 
     }
 

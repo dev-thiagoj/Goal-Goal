@@ -939,7 +939,7 @@ MonoBehaviour:
   endgameBackground: {fileID: 657513731}
   rulesBackground: {fileID: 800585245}
   winnerAnnouncer: {fileID: 1628675190}
-  endPoint: 1
+  endPoint: 500
   timeToSetBallFree: 3
 --- !u!4 &409220370
 Transform:
@@ -1989,6 +1989,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ball: {fileID: 1215735673}
   boundary: 2000
+  limitsY: {x: 0, y: 600}
   randSpeedY: {x: -10, y: 20}
   randSpeedX: {x: 10, y: 20}
   _canmove: 0
