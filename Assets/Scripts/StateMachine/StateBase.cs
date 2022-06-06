@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StateBase
 {
@@ -23,6 +24,7 @@ public class StatePlaying : StateBase
     public override void OnStateEnter(object o = null)
     {
         base.OnStateEnter(o);
+        SceneManager.LoadScene(1);
         GameManager.Instance.StartGame();
     }
 }

@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
     public TextMeshProUGUI uiTextPoints;
     //public TextMeshProUGUI uiTextEndGame;
 
-    public GameManager gameManager;
+    
     public int currentPoints;
 
     private Vector3 _pos;
@@ -87,10 +87,10 @@ public class Player : MonoBehaviour
 
     public void FinalPoint()
     {
-        if (currentPoints == gameManager.endPoint)
+        if (currentPoints == GameManager.Instance.endPoint)
         {
             //player.name = (string) playerName;
-            gameManager.ChangeStateToEnd();
+            GameManager.Instance.ChangeStateToEnd();
         }
     }
 }

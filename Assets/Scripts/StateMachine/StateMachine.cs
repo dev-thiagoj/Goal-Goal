@@ -1,7 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
+using DevUtills.Core.Singleton;
+using UnityEngine.SceneManagement;
 
-public class StateMachine : MonoBehaviour
+public class StateMachine : Singleton<StateMachine>
 {
     public enum States
     {
@@ -15,15 +17,11 @@ public class StateMachine : MonoBehaviour
 
     public StateBase _currentState;
     public float timeToStartGame = 0f;
-    public GameManager gameManager;
-    public static StateMachine Instance;
-    
-    private BallBase ballBase;
 
-
-    private void Awake()
+    protected override void Awake()
     {
-        Instance = this;
+        base.Awake();
+        DontDestroyOnLoad(gameObject);
 
         dictionaryState = new Dictionary<States, StateBase>
         {
@@ -34,9 +32,6 @@ public class StateMachine : MonoBehaviour
         };
 
         SwitchState(States.MENU);
-
-        ballBase = GameObject.Find("GameManager").GetComponent<BallBase>();
-
     }
 
 
