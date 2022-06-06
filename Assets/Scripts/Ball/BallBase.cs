@@ -64,6 +64,11 @@ public class BallBase : MonoBehaviour
 
     }
 
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if (hit.gameObject.CompareTag("Player")) OnPlayerCollision();
+    }
+
     private void OnPlayerCollision()
     {
         speed.x *= -1;

@@ -5,7 +5,8 @@ using TMPro;
 public class Player : MonoBehaviour
 {
     public Player player; 
-    public CharacterController characterController;
+    //public CharacterController characterController;
+    public Rigidbody2D rigidbody2D;
    
     public Image uiPlayer;
     public string playerName;
@@ -25,7 +26,8 @@ public class Player : MonoBehaviour
 
     private void OnValidate()
     {
-        if (characterController == null) characterController = GetComponent<CharacterController>();
+        //if (characterController == null) characterController = GetComponent<CharacterController>();
+        if (rigidbody2D == null) rigidbody2D = GetComponent<Rigidbody2D>();
     }
 
     private void Awake()
@@ -50,8 +52,8 @@ public class Player : MonoBehaviour
 
     public void Bounds()
     {
-        _pos.y = characterController.transform.position.y;
-        _pos.x = characterController.transform.position.x;
+        _pos.y = rigidbody2D.transform.position.y;
+        _pos.x = rigidbody2D.transform.position.x;
 
         if (_pos.x < limitsX.x) _pos.x = limitsX.x;
         else if (_pos.x > limitsX.y) _pos.x = limitsX.y;
@@ -59,7 +61,7 @@ public class Player : MonoBehaviour
         if (_pos.y < limitsY.x) _pos.y = limitsY.x;
         else if (_pos.y > limitsY.y) _pos.y = limitsY.y;
 
-        characterController.transform.position = _pos;
+        rigidbody2D.transform.position = _pos;
     }
     
     /*public void SetName(string s)

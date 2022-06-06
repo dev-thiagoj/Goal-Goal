@@ -898,24 +898,53 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 990048279503635419, guid: 2a600bad8ad650a42b26d0aa6c533bd9, type: 3}
   m_PrefabInstance: {fileID: 1430579232}
   m_PrefabAsset: {fileID: 0}
---- !u!143 &386277539
-CharacterController:
+--- !u!61 &386277539
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 386277537}
+  m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Height: 2
-  m_Radius: 0.5
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 16.01, y: 101.8}
+  m_EdgeRadius: 0
+--- !u!50 &386277541
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 386277537}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!224 &396623303 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 470480516330429047, guid: 1108506331567c24ab78266d9d3ff124, type: 3}
@@ -1031,8 +1060,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpeed: 5
-  controller01: {fileID: 1794963752}
-  controller02: {fileID: 386277539}
+  rigidbody01: {fileID: 1794963752}
+  rigidbody02: {fileID: 386277541}
 --- !u!1 &469775258
 GameObject:
   m_ObjectHideFlags: 0
@@ -3162,6 +3191,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 409220369}
     - target: {fileID: 990048279503635237, guid: 2a600bad8ad650a42b26d0aa6c533bd9, type: 3}
+      propertyPath: rigidbody2D
+      value: 
+      objectReference: {fileID: 386277541}
+    - target: {fileID: 990048279503635237, guid: 2a600bad8ad650a42b26d0aa6c533bd9, type: 3}
       propertyPath: uiTextPoints
       value: 
       objectReference: {fileID: 2043298301}
@@ -3184,7 +3217,7 @@ PrefabInstance:
     - target: {fileID: 990048279503635237, guid: 2a600bad8ad650a42b26d0aa6c533bd9, type: 3}
       propertyPath: characterController
       value: 
-      objectReference: {fileID: 386277539}
+      objectReference: {fileID: 0}
     - target: {fileID: 990048279503635418, guid: 2a600bad8ad650a42b26d0aa6c533bd9, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3277,29 +3310,7 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 3899804997286678604, guid: 2a600bad8ad650a42b26d0aa6c533bd9, type: 3}
-      propertyPath: m_Size.x
-      value: 15.010631
-      objectReference: {fileID: 0}
-    - target: {fileID: 3899804997286678604, guid: 2a600bad8ad650a42b26d0aa6c533bd9, type: 3}
-      propertyPath: m_Size.y
-      value: 99.98042
-      objectReference: {fileID: 0}
-    - target: {fileID: 3899804997286678604, guid: 2a600bad8ad650a42b26d0aa6c533bd9, type: 3}
-      propertyPath: m_Offset.x
-      value: 0.26457214
-      objectReference: {fileID: 0}
-    - target: {fileID: 3899804997286678604, guid: 2a600bad8ad650a42b26d0aa6c533bd9, type: 3}
-      propertyPath: m_Offset.y
-      value: -0.26459503
-      objectReference: {fileID: 0}
-    - target: {fileID: 5418368606455337082, guid: 2a600bad8ad650a42b26d0aa6c533bd9, type: 3}
-      propertyPath: m_Mass
-      value: 1000
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3899804997286678604, guid: 2a600bad8ad650a42b26d0aa6c533bd9, type: 3}
-    - {fileID: 5418368606455337082, guid: 2a600bad8ad650a42b26d0aa6c533bd9, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a600bad8ad650a42b26d0aa6c533bd9, type: 3}
 --- !u!1 &1440135015
 GameObject:
@@ -4791,24 +4802,53 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 990048279503635419, guid: 2a600bad8ad650a42b26d0aa6c533bd9, type: 3}
   m_PrefabInstance: {fileID: 990048280446719397}
   m_PrefabAsset: {fileID: 0}
---- !u!143 &1794963752
-CharacterController:
+--- !u!50 &1794963752
+Rigidbody2D:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1794963750}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!61 &1794963754
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1794963750}
+  m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Height: 2
-  m_Radius: 0.5
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 16.01, y: 101.8}
+  m_EdgeRadius: 0
 --- !u!224 &1810505789 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3334780789374322913, guid: 87a281576fbfc4a45ae2dac4f5b3a59c, type: 3}
@@ -5456,6 +5496,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 409220369}
     - target: {fileID: 990048279503635237, guid: 2a600bad8ad650a42b26d0aa6c533bd9, type: 3}
+      propertyPath: rigidbody2D
+      value: 
+      objectReference: {fileID: 1794963752}
+    - target: {fileID: 990048279503635237, guid: 2a600bad8ad650a42b26d0aa6c533bd9, type: 3}
       propertyPath: uiTextPoints
       value: 
       objectReference: {fileID: 1441765509}
@@ -5478,7 +5522,7 @@ PrefabInstance:
     - target: {fileID: 990048279503635237, guid: 2a600bad8ad650a42b26d0aa6c533bd9, type: 3}
       propertyPath: characterController
       value: 
-      objectReference: {fileID: 1794963752}
+      objectReference: {fileID: 0}
     - target: {fileID: 990048279503635418, guid: 2a600bad8ad650a42b26d0aa6c533bd9, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -5567,33 +5611,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player_01
       objectReference: {fileID: 0}
-    - target: {fileID: 3899804997286678604, guid: 2a600bad8ad650a42b26d0aa6c533bd9, type: 3}
-      propertyPath: m_Size.x
-      value: 15.539791
-      objectReference: {fileID: 0}
-    - target: {fileID: 3899804997286678604, guid: 2a600bad8ad650a42b26d0aa6c533bd9, type: 3}
-      propertyPath: m_Size.y
-      value: 101.03885
-      objectReference: {fileID: 0}
-    - target: {fileID: 3899804997286678604, guid: 2a600bad8ad650a42b26d0aa6c533bd9, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3899804997286678604, guid: 2a600bad8ad650a42b26d0aa6c533bd9, type: 3}
-      propertyPath: m_Offset.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3899804997286678604, guid: 2a600bad8ad650a42b26d0aa6c533bd9, type: 3}
-      propertyPath: m_Offset.y
-      value: -0.2645874
-      objectReference: {fileID: 0}
-    - target: {fileID: 5418368606455337082, guid: 2a600bad8ad650a42b26d0aa6c533bd9, type: 3}
-      propertyPath: m_Mass
-      value: 1000
-      objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 3899804997286678604, guid: 2a600bad8ad650a42b26d0aa6c533bd9, type: 3}
-    - {fileID: 5418368606455337082, guid: 2a600bad8ad650a42b26d0aa6c533bd9, type: 3}
+    - {fileID: 0}
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 2a600bad8ad650a42b26d0aa6c533bd9, type: 3}
 --- !u!1001 &6681127312806978784
 PrefabInstance:
