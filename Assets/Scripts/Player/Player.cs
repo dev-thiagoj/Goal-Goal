@@ -115,6 +115,8 @@ public class Player : MonoBehaviour
         if (currentPoints == GameManager.Instance.endPoint)
         {
             //player.name = (string) playerName;
+            Player_MovementManager.Instance.playerSpeed = 0;
+            GameManager.Instance.particleSystem.Play(true);
             GameManager.Instance.ChangeStateToEnd();
         }
     }

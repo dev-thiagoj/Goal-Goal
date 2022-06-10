@@ -8,15 +8,13 @@ public class BallBase : Singleton<BallBase>
     public GameObject ball;
     public GameObject midField;
     public Vector3 midFieldPos;
-    public int boundary = 1000;
 
     [Header("Limits")]
-    //public Vector2 limitsX = new Vector2(-4f, 4f);
-    public Vector2 limitsY = new Vector2(-4f, 4f);
+    public int safeBoundary = 1000;
 
     [Header("Randomization")]
-    public Vector2 randSpeedY = new Vector2(1, 10);
-    public Vector2 randSpeedX = new Vector2(1, 10);
+    public Vector2 randSpeedX;
+    public Vector2 randSpeedY;
 
     private Vector3 _startPosition;
     public bool canMove = false;
@@ -29,7 +27,9 @@ public class BallBase : Singleton<BallBase>
     private void Start()
     {
         _startPosition = transform.position;
-        speed = new Vector3(Random.Range(-15, 15), Random.Range(-15, 15), 0);
+        //speed = new Vector3(Random.Range(randSpeedX.x, randSpeedX.y), Random.Range(randSpeedY.x, randSpeedY.y));
+        ResetBall();
+
     }
 
     //adiciona movimento a ball
@@ -39,17 +39,17 @@ public class BallBase : Singleton<BallBase>
 
         else
         {
-            transform.Translate(100 * Time.deltaTime * speed);
+            transform.Translate(Time.deltaTime * speed);
 
             Boundary(true);
 
             if (speed.x == 0)
             {
-                speed.x = Random.Range(-15, 15);
+                speed.x = Random.Range(randSpeedX.x, randSpeedX.y);
             }
-            else if (speed.y == 0)
+            else if (speed.y <= 0.1 && speed.y >= -0.1)
             {
-                speed.y = Random.Range(-15, 15);
+                speed.y = Random.Range(randSpeedY.x, randSpeedY.y);
             }
         }
     }
@@ -57,23 +57,15 @@ public class BallBase : Singleton<BallBase>
     //inverte o deslocamento da ball qdo colide com as bordas e/ou player
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            OnPlayerCollision();
-        }
-
-        else if (collision.gameObject.CompareTag("Wall"))
+        if (collision.gameObject.CompareTag("Wall"))
         {
             speed.y *= -1;
         }
 
-        else return;
-
-    }
-
-    private void OnControllerColliderHit(ControllerColliderHit hit)
-    {
-        //if (hit.gameObject.CompareTag("Player")) OnPlayerCollision();
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            OnPlayerCollision();
+        }
     }
 
     private void OnPlayerCollision()
@@ -97,7 +89,7 @@ public class BallBase : Singleton<BallBase>
     {
         b = false;
 
-        if (ball.transform.position.y > boundary || ball.transform.position.y < -boundary)
+        if (ball.transform.position.y > safeBoundary || ball.transform.position.y < -safeBoundary)
         {
             b = true;
 
@@ -115,7 +107,7 @@ public class BallBase : Singleton<BallBase>
     public void ResetBall()
     {
         transform.position = _startPosition;
-        speed = new Vector2(Random.Range(-15, 15), Random.Range(-15, 15));
+        speed = new Vector3(Random.Range(randSpeedX.x, randSpeedX.y), Random.Range(randSpeedY.x, randSpeedY.y));
     }
 
     public void CanMove(bool state)

@@ -5,13 +5,15 @@ using UnityEngine.UI;
 using DevUtills.Core.Singleton;
 
 public class GameManager : Singleton<GameManager>
-{   
+{
     //public Button buttonStart;
     //public Button buttonRestart;
     //public Button buttonOk;
     //public GameObject initialBackground;
     //public GameObject endgameBackground;
     //public GameObject rulesBackground;
+
+    public ParticleSystem particleSystem;
 
     public TextMeshProUGUI winnerAnnouncer;
 
@@ -23,10 +25,26 @@ public class GameManager : Singleton<GameManager>
     {
         base.Awake();
 
+        //Screen.SetResolution(600, 800, false, 60);
+
+        //SetRatio(16f, 9f);
+
         DontDestroyOnLoad(gameObject);
         //rulesBackground.SetActive(false);
         //initialBackground.SetActive(true);
         //endgameBackground.SetActive(false);
+    }
+
+    void SetRatio(float w, float h)
+    {
+        if ((((float)Screen.width) / ((float)Screen.height)) > w / h)
+        {
+            Screen.SetResolution((int)(((float)Screen.height) * (w / h)), Screen.height, true);
+        }
+        else
+        {
+            Screen.SetResolution(Screen.width, (int)(((float)Screen.width) * (h / w)), true);
+        }
     }
 
     public void SwithStateReset()
@@ -66,6 +84,7 @@ public class GameManager : Singleton<GameManager>
     {
         BallBase.Instance.ball.SetActive(false);
         BallBase.Instance.CanMove(false);
+        //particleSystem.Play();
         //endgameBackground.SetActive(true);
 
         UpdateWinnerText();
@@ -88,6 +107,7 @@ public class GameManager : Singleton<GameManager>
 
     public void ChangeStateToEnd()
     {
+        
         StateMachine.Instance.SwitchState(StateMachine.States.END_GAME);
     }
 }
