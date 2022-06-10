@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/00_SCN_Menu.unity
     guid: 1711ad05e89f1b748bdd604896e3d857
   - enabled: 1
-    path: Assets/Scenes/DevTJ - Insane_Pong.unity
+    path: Assets/Scenes/02_DevTJ - Insane_Pong.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects: {}
