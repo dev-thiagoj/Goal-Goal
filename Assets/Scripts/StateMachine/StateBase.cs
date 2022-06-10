@@ -24,7 +24,7 @@ public class StatePlaying : StateBase
     public override void OnStateEnter(object o = null)
     {
         base.OnStateEnter(o);
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
         GameManager.Instance.StartGame();
     }
 }
