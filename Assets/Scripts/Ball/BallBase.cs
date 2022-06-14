@@ -27,7 +27,7 @@ public class BallBase : Singleton<BallBase>
     private void Start()
     {
         _startPosition = transform.position;
-        //speed = new Vector3(Random.Range(randSpeedX.x, randSpeedX.y), Random.Range(randSpeedY.x, randSpeedY.y));
+        //speed = new Vector3(Random.Range(-10f, randSpeedX.y), Random.Range(randSpeedY.x, randSpeedY.y));
         ResetBall();
 
     }
@@ -107,7 +107,7 @@ public class BallBase : Singleton<BallBase>
     public void ResetBall()
     {
         transform.position = _startPosition;
-        speed = new Vector3(Random.Range(randSpeedX.x, randSpeedX.y), Random.Range(randSpeedY.x, randSpeedY.y));
+        speed = new Vector3(Random.Range(-randSpeedX.y, randSpeedX.y), Random.Range(randSpeedY.x, randSpeedY.y));
     }
 
     public void CanMove(bool state)

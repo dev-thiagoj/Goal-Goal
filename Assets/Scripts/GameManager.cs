@@ -6,22 +6,12 @@ using DevUtills.Core.Singleton;
 
 public class GameManager : Singleton<GameManager>
 {
-    private const string V = "Player 02 é o vencedor.";
-    private const string V1 = "Player 01 é o vencedor.";
-
-    //public Button buttonStart;
-    //public Button buttonRestart;
-    //public Button buttonOk;
-    //public GameObject initialBackground;
-    //public GameObject endgameBackground;
-    //public GameObject rulesBackground;
-
-    //public ParticleSystem particleSystem;
-
     public TextMeshProUGUI winnerAnnouncer;
 
     public Player player01;
     public Player player02;
+
+    public string winner = "";
 
     public int endPoint = 5;
 
@@ -98,10 +88,10 @@ public class GameManager : Singleton<GameManager>
 
     public void EndGame()
     {   
-        UpdateWinnerText();
         BallBase.Instance.ball.SetActive(false);
         BallBase.Instance.CanMove(false);
         Invoke(nameof(LoadEndScene), 5);
+        UpdateWinnerText();
     }
 
     void LoadEndScene()
@@ -111,10 +101,11 @@ public class GameManager : Singleton<GameManager>
 
     public void UpdateWinnerText()
     {
-        if (player01.currentPoints == Instance.endPoint) 
-            winnerAnnouncer.text = V1;
-        else
-            winnerAnnouncer.text = V;
+        Debug.Log(winner);
+        //if (player01.currentPoints == endPoint)
+        winnerAnnouncer.text = winner + " é o(a) vencedor(a).";
+        //else
+            //winnerAnnouncer.text = player02.name + " é o(a) vencedor(a).";
     }
 
     public void RestartGame()

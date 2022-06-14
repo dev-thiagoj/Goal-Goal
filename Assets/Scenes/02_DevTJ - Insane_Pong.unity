@@ -11084,7 +11084,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 280677607118648759, guid: 1108506331567c24ab78266d9d3ff124, type: 3}
       propertyPath: m_Name
-      value: Trigger_Ball_02
+      value: Trigger_Ball_01
       objectReference: {fileID: 0}
     - target: {fileID: 470480516330429047, guid: 1108506331567c24ab78266d9d3ff124, type: 3}
       propertyPath: m_Pivot.x
@@ -11096,7 +11096,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 470480516330429047, guid: 1108506331567c24ab78266d9d3ff124, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 470480516330429047, guid: 1108506331567c24ab78266d9d3ff124, type: 3}
       propertyPath: m_AnchorMax.x
@@ -11173,7 +11173,7 @@ PrefabInstance:
     - target: {fileID: 1534824771932797065, guid: 1108506331567c24ab78266d9d3ff124, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 990048280925301509}
+      objectReference: {fileID: 1221482112}
     - target: {fileID: 1534824771932797065, guid: 1108506331567c24ab78266d9d3ff124, type: 3}
       propertyPath: particleSystem
       value: 
@@ -11914,7 +11914,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -12.190002, y: 22.919983}
+  m_AnchoredPosition: {x: -12.189941, y: 22.919983}
   m_SizeDelta: {x: 226.47, y: 148.52}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1238668638
@@ -12675,7 +12675,7 @@ GameObject:
   - component: {fileID: 1441765510}
   - component: {fileID: 1441765509}
   m_Layer: 5
-  m_Name: Counter02
+  m_Name: Counter_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14249,8 +14249,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1607314365}
   - {fileID: 396623303}
+  - {fileID: 1607314365}
   m_Father: {fileID: 90598517}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -14271,7 +14271,7 @@ GameObject:
   - component: {fileID: 2043298302}
   - component: {fileID: 2043298301}
   m_Layer: 5
-  m_Name: Counter01
+  m_Name: Counter_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14796,7 +14796,7 @@ PrefabInstance:
     - target: {fileID: 2852780982556204775, guid: 5863d6609a6517149ad83aac9d576c4a, type: 3}
       propertyPath: uiTextPoints
       value: 
-      objectReference: {fileID: 1441765509}
+      objectReference: {fileID: 2043298301}
     - target: {fileID: 2852780982556204775, guid: 5863d6609a6517149ad83aac9d576c4a, type: 3}
       propertyPath: upBoundTransform
       value: 
@@ -14825,7 +14825,7 @@ PrefabInstance:
     - target: {fileID: 6574054684971677477, guid: 63e1c891f0077f343997d9f7cd2bf759, type: 3}
       propertyPath: uiTextPoints
       value: 
-      objectReference: {fileID: 2043298301}
+      objectReference: {fileID: 1441765509}
     - target: {fileID: 6574054684971677477, guid: 63e1c891f0077f343997d9f7cd2bf759, type: 3}
       propertyPath: upBoundTransform
       value: 
@@ -14957,15 +14957,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6406618550323723630, guid: 9f8c5dfdfb9f32146a69cd4b742ca012, type: 3}
       propertyPath: randSpeedX.y
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6406618550323723630, guid: 9f8c5dfdfb9f32146a69cd4b742ca012, type: 3}
       propertyPath: randSpeedY.x
-      value: -15
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 6406618550323723630, guid: 9f8c5dfdfb9f32146a69cd4b742ca012, type: 3}
       propertyPath: randSpeedY.y
-      value: 15
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6406618550323723630, guid: 9f8c5dfdfb9f32146a69cd4b742ca012, type: 3}
+      propertyPath: initialRandSpeedX.x
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6406618550323723630, guid: 9f8c5dfdfb9f32146a69cd4b742ca012, type: 3}
+      propertyPath: initialRandSpeedX.y
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6406618550323723631, guid: 9f8c5dfdfb9f32146a69cd4b742ca012, type: 3}
       propertyPath: m_AnchorMax.x
@@ -15094,7 +15102,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3540898016974359676, guid: 4e5758ec4d8483c498e0193987e21aac, type: 3}
       propertyPath: endPoint
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3540898016974359676, guid: 4e5758ec4d8483c498e0193987e21aac, type: 3}
       propertyPath: particleSystem
@@ -15207,7 +15215,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 280677607118648759, guid: 1108506331567c24ab78266d9d3ff124, type: 3}
       propertyPath: m_Name
-      value: Trigger_Ball_01
+      value: Trigger_Ball_02
       objectReference: {fileID: 0}
     - target: {fileID: 470480516330429047, guid: 1108506331567c24ab78266d9d3ff124, type: 3}
       propertyPath: m_Pivot.x
@@ -15219,7 +15227,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 470480516330429047, guid: 1108506331567c24ab78266d9d3ff124, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 470480516330429047, guid: 1108506331567c24ab78266d9d3ff124, type: 3}
       propertyPath: m_AnchorMax.x
@@ -15296,7 +15304,7 @@ PrefabInstance:
     - target: {fileID: 1534824771932797065, guid: 1108506331567c24ab78266d9d3ff124, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 1221482112}
+      objectReference: {fileID: 990048280925301509}
     - target: {fileID: 1534824771932797065, guid: 1108506331567c24ab78266d9d3ff124, type: 3}
       propertyPath: particleSystem
       value: 

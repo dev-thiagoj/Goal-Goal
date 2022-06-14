@@ -54,6 +54,8 @@ public class Player : MonoBehaviour
     {
         Bounds();
         if(_playing) FinalPoint();
+
+        Debug.Log(gameObject.name + " = " + currentPoints);
     }
 
     public void ResetPlayer()
@@ -117,6 +119,7 @@ public class Player : MonoBehaviour
         if (currentPoints == GameManager.Instance.endPoint)
         {
             //player.name = (string) playerName;
+            GameManager.Instance.winner = gameObject.name;
             _playing = false;
             PlayFireworksHelper.Instance.StartFireworks();
             BallBase.Instance.gameObject.SetActive(false);
