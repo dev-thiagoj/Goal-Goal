@@ -6,6 +6,9 @@ using DevUtills.Core.Singleton;
 
 public class GameManager : Singleton<GameManager>
 {
+    private const string V = "Player 02 é o vencedor.";
+    private const string V1 = "Player 01 é o vencedor.";
+
     //public Button buttonStart;
     //public Button buttonRestart;
     //public Button buttonOk;
@@ -17,7 +20,8 @@ public class GameManager : Singleton<GameManager>
 
     public TextMeshProUGUI winnerAnnouncer;
 
-    public Player[] playersCS;
+    public Player player01;
+    public Player player02;
 
     public int endPoint = 5;
 
@@ -30,11 +34,9 @@ public class GameManager : Singleton<GameManager>
         //Screen.SetResolution(600, 800, false, 60);
 
         //SetRatio(16f, 9f);
-        Debug.Log("GameManager Awake");
+        
         DontDestroyOnLoad(gameObject);
         //rulesBackground.SetActive(false);
-
-        playersCS = FindObjectsOfType<Player>();
     }
 
     void SetRatio(float w, float h)
@@ -51,7 +53,7 @@ public class GameManager : Singleton<GameManager>
 
     private void Start()
     {
-        Debug.Log("GameManager Start");
+        winnerAnnouncer.text = "";
     }
 
     public void LoadMenuScene()
@@ -85,20 +87,21 @@ public class GameManager : Singleton<GameManager>
     public void LoadPlayScene()
     {
         SceneManager.LoadScene(2);
-        Invoke(nameof(ChangeStateToPlay), 2);
+        ChangeStateToPlay();
     }
 
     public void StartGame()
     {
+        Debug.Log("Start game");
         Invoke(nameof(SetBallFree), timeToSetBallFree);
     }
 
     public void EndGame()
     {   
+        UpdateWinnerText();
         BallBase.Instance.ball.SetActive(false);
         BallBase.Instance.CanMove(false);
         Invoke(nameof(LoadEndScene), 5);
-        UpdateWinnerText();
     }
 
     void LoadEndScene()
@@ -108,12 +111,15 @@ public class GameManager : Singleton<GameManager>
 
     public void UpdateWinnerText()
     {
-        //winnerAnnouncer.text = (string) player.playerName + " é o vencedor!";
+        if (player01.currentPoints == Instance.endPoint) 
+            winnerAnnouncer.text = V1;
+        else
+            winnerAnnouncer.text = V;
     }
 
     public void RestartGame()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
     public void ChangeStateToPlay()

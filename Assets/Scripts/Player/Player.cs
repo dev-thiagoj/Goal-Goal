@@ -31,6 +31,7 @@ public class Player : MonoBehaviour
     public int currentPoints;
 
     private Vector3 _pos;
+    private bool _playing;
 
     private void OnValidate()
     {
@@ -52,13 +53,14 @@ public class Player : MonoBehaviour
     void Update()
     {
         Bounds();
-        FinalPoint();
+        if(_playing) FinalPoint();
     }
 
     public void ResetPlayer()
     {
         currentPoints = 0;
         UpdateUI();
+        _playing = true;
     }
 
     private void GetBounds()
@@ -115,18 +117,11 @@ public class Player : MonoBehaviour
         if (currentPoints == GameManager.Instance.endPoint)
         {
             //player.name = (string) playerName;
+            _playing = false;
             PlayFireworksHelper.Instance.StartFireworks();
             BallBase.Instance.gameObject.SetActive(false);
             Player_MovementManager.Instance.playerSpeed = 0;
-            //GameManager.Instance.ChangeStateToEnd();
-        }
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.transform.CompareTag("Wall"))
-        {
-            
+            GameManager.Instance.ChangeStateToEnd();
         }
     }
 }

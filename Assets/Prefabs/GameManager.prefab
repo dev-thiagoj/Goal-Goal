@@ -43,7 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fea41217c37596449eb2c937fc47217, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particleSystem: {fileID: 0}
-  winnerAnnouncer: {fileID: 0}
+  winnerAnnouncer: {fileID: 862359526022181637, guid: 396a37e4dc79cbd45919ae1ecc562906, type: 3}
+  player01: {fileID: 2852780982556204775, guid: 5863d6609a6517149ad83aac9d576c4a, type: 3}
+  player02: {fileID: 6574054684971677477, guid: 63e1c891f0077f343997d9f7cd2bf759, type: 3}
   endPoint: 5
   timeToSetBallFree: 3
