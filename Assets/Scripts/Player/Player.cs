@@ -115,9 +115,10 @@ public class Player : MonoBehaviour
         if (currentPoints == GameManager.Instance.endPoint)
         {
             //player.name = (string) playerName;
+            PlayFireworksHelper.Instance.StartFireworks();
+            BallBase.Instance.gameObject.SetActive(false);
             Player_MovementManager.Instance.playerSpeed = 0;
-            GameManager.Instance.particleSystem.Play(true);
-            GameManager.Instance.ChangeStateToEnd();
+            //GameManager.Instance.ChangeStateToEnd();
         }
     }
 

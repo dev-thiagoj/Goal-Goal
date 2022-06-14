@@ -13,9 +13,11 @@ public class GameManager : Singleton<GameManager>
     //public GameObject endgameBackground;
     //public GameObject rulesBackground;
 
-    public ParticleSystem particleSystem;
+    //public ParticleSystem particleSystem;
 
     public TextMeshProUGUI winnerAnnouncer;
+
+    public Player[] playersCS;
 
     public int endPoint = 5;
 
@@ -28,11 +30,11 @@ public class GameManager : Singleton<GameManager>
         //Screen.SetResolution(600, 800, false, 60);
 
         //SetRatio(16f, 9f);
-
+        Debug.Log("GameManager Awake");
         DontDestroyOnLoad(gameObject);
         //rulesBackground.SetActive(false);
-        //initialBackground.SetActive(true);
-        //endgameBackground.SetActive(false);
+
+        playersCS = FindObjectsOfType<Player>();
     }
 
     void SetRatio(float w, float h)
@@ -45,6 +47,16 @@ public class GameManager : Singleton<GameManager>
         {
             Screen.SetResolution(Screen.width, (int)(((float)Screen.width) * (h / w)), true);
         }
+    }
+
+    private void Start()
+    {
+        Debug.Log("GameManager Start");
+    }
+
+    public void LoadMenuScene()
+    {
+        SceneManager.LoadScene(1);
     }
 
     public void SwithStateReset()
@@ -70,24 +82,28 @@ public class GameManager : Singleton<GameManager>
         //initialBackground.SetActive(true);
     }
 
+    public void LoadPlayScene()
+    {
+        SceneManager.LoadScene(2);
+        Invoke(nameof(ChangeStateToPlay), 2);
+    }
+
     public void StartGame()
     {
-        //initialBackground.SetActive(false);
-        //endgameBackground.SetActive(false);
-
-        //BallBase.Instance.InstantiateBall();
-        //BallBase.Instance.CanMove(true);
         Invoke(nameof(SetBallFree), timeToSetBallFree);
     }
 
     public void EndGame()
-    {
+    {   
         BallBase.Instance.ball.SetActive(false);
         BallBase.Instance.CanMove(false);
-        //particleSystem.Play();
-        //endgameBackground.SetActive(true);
-
+        Invoke(nameof(LoadEndScene), 5);
         UpdateWinnerText();
+    }
+
+    void LoadEndScene()
+    {
+        SceneManager.LoadScene(3);
     }
 
     public void UpdateWinnerText()
