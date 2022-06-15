@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 public class Player : MonoBehaviour
 {
-    public Player player;
+    //public Player player01, player02;
     //public CharacterController characterController;
     public Rigidbody2D rigidbody2D;
 
@@ -53,6 +53,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         Bounds();
+        if(_playing) AudioPitchModifier();
         if(_playing) FinalPoint();
 
         Debug.Log(gameObject.name + " = " + currentPoints);
@@ -112,6 +113,26 @@ public class Player : MonoBehaviour
     private void UpdateUI()
     {
         uiTextPoints.text = currentPoints.ToString();
+    }
+
+    public void AudioPitchModifier()
+    {
+        if (currentPoints == GameManager.Instance.endPoint - 4)
+        {
+            AudioHelper.Instance.PitchAccelerator(1.1f);
+        }
+        else if (currentPoints == GameManager.Instance.endPoint - 3)
+        {
+            AudioHelper.Instance.PitchAccelerator(1.2f);
+        }
+        else if (currentPoints == GameManager.Instance.endPoint - 2)
+        {
+            AudioHelper.Instance.PitchAccelerator(1.3f);
+        }
+        else if (currentPoints == GameManager.Instance.endPoint - 1)
+        {
+            AudioHelper.Instance.PitchAccelerator(1.4f);
+        }
     }
 
     public void FinalPoint()

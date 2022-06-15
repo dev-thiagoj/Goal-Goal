@@ -95,7 +95,8 @@ public class GameManager : Singleton<GameManager>
     }
 
     public void EndGame()
-    {   
+    {
+        AudioHelper.Instance.PitchAccelerator(1f);
         BallBase.Instance.ball.SetActive(false);
         BallBase.Instance.CanMove(false);
         Invoke(nameof(LoadEndScene), 5);
