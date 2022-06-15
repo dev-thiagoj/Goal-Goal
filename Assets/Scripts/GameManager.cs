@@ -17,6 +17,8 @@ public class GameManager : Singleton<GameManager>
 
     public float timeToSetBallFree = 4f;
 
+    //public LoadSceneHelper sceneHelper;
+
     protected override void Awake()
     {
         base.Awake();
@@ -49,6 +51,12 @@ public class GameManager : Singleton<GameManager>
     public void LoadMenuScene()
     {
         SceneManager.LoadScene(1);
+        //sceneHelper.isLogoScene = false;
+    }
+
+    public void DebugRestartButton()
+    {
+        Debug.Log("Restart Button");
     }
 
     public void SwithStateReset()
@@ -110,7 +118,13 @@ public class GameManager : Singleton<GameManager>
 
     public void RestartGame()
     {
+        ChangeStateToPlay();
         SceneManager.LoadScene(1);
+    }
+
+    public void ExitApplication()
+    {
+        Application.Quit();
     }
 
     public void ChangeStateToPlay()
