@@ -241,7 +241,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  canRotate: 1
+  canRotateY: 1
+  canRotateZ: 0
 --- !u!114 &746937029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -254,6 +255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97eebc2c8b52dd64fa74d545e9e037ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLogoScene: 1
 --- !u!1001 &909049046
 PrefabInstance:
   m_ObjectHideFlags: 0
