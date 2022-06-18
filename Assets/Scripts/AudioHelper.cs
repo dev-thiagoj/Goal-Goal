@@ -22,4 +22,9 @@ public class AudioHelper : Singleton<AudioHelper>
     {
         audioSource.pitch = f;
     }
+
+    public void PlayEndGameJingle()
+    {
+
+    }
 }

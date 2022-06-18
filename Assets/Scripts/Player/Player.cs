@@ -30,6 +30,7 @@ public class Player : MonoBehaviour
 
     public int currentPoints;
 
+    private AudioSource audioSource;
     private Vector3 _pos;
     private bool _playing;
 
@@ -37,6 +38,7 @@ public class Player : MonoBehaviour
     {
         //if (characterController == null) characterController = GetComponent<CharacterController>();
         if (rigidbody2D == null) rigidbody2D = GetComponent<Rigidbody2D>();
+        if (audioSource == null) audioSource = GetComponent<AudioSource>();
     }
 
     private void Awake()
@@ -146,6 +148,14 @@ public class Player : MonoBehaviour
             BallBase.Instance.gameObject.SetActive(false);
             Player_MovementManager.Instance.playerSpeed = 0;
             GameManager.Instance.ChangeStateToEnd();
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.transform.CompareTag("Ball"))
+        {
+            audioSource.Play();
         }
     }
 }
