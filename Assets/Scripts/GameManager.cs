@@ -2,102 +2,140 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using DevUtills.Core.Singleton;
 
-public class GameManager : MonoBehaviour
+public class GameManager : Singleton<GameManager>
 {
-    //Resetar posição dos players a cada ponto
-    //melhorar speed randomico da bola (as vezes fica mto lento e com angulo y mto acentuado
-    //melhorar a colisão com as linhas para que estas nao alterem a direção da bola
-    //fazer mais cena (scn_menu, scn_play, scn_endgame)...verificar se nao da conflito com a state machine
-    
-    
-    public BallBase ballBase;
-    private Player player;
-    public StateMachine stateMachine;
-    public Button buttonStart;
-    public Button buttonRestart;
-    public Button buttonOk;
-    public GameObject initialBackground;
-    public GameObject endgameBackground;
-    public GameObject rulesBackground;
-
     public TextMeshProUGUI winnerAnnouncer;
 
+    public Player player01;
+    public Player player02;
+
+    public string winner = "";
+
     public int endPoint = 5;
-    public static GameManager Instance;
 
     public float timeToSetBallFree = 4f;
 
-    private void Awake()
+    //public LoadSceneHelper sceneHelper;
+
+    protected override void Awake()
     {
-        Instance = this;
+        base.Awake();
 
-        player = GetComponent<Player>();
+        //Screen.SetResolution(600, 800, false, 60);
 
-        rulesBackground.SetActive(false);
-        initialBackground.SetActive(true);
-        endgameBackground.SetActive(false);
+        //SetRatio(16f, 9f);
+        
+        DontDestroyOnLoad(gameObject);
+        //rulesBackground.SetActive(false);
+    }
+
+    void SetRatio(float w, float h)
+    {
+        if ((((float)Screen.width) / ((float)Screen.height)) > w / h)
+        {
+            Screen.SetResolution((int)(((float)Screen.height) * (w / h)), Screen.height, true);
+        }
+        else
+        {
+            Screen.SetResolution(Screen.width, (int)(((float)Screen.width) * (h / w)), true);
+        }
+    }
+
+    private void Start()
+    {
+        winnerAnnouncer.text = "";
+    }
+
+    public void LoadMenuScene()
+    {
+        SceneManager.LoadScene(1);
+        //sceneHelper.isLogoScene = false;
+    }
+
+    public void DebugRestartButton()
+    {
+        Debug.Log("Restart Button");
     }
 
     public void SwithStateReset()
     {
-        stateMachine.ResetPosition();
+        StateMachine.Instance.ResetPosition();
     }
 
     public void ResetBall()
     {
-        ballBase.CanMove(false);
-        ballBase.ResetBall();
+        BallBase.Instance.CanMove(false);
+        BallBase.Instance.ResetBall();
         Invoke(nameof(SetBallFree), Random.Range(2, timeToSetBallFree));
     }
 
     private void SetBallFree()
     {
-        ballBase.CanMove(true);
+        BallBase.Instance.CanMove(true);
     }
 
     public void ExitRulesBackground()
     {
-        rulesBackground.SetActive(false);
-        initialBackground.SetActive(true);
+        //rulesBackground.SetActive(false);
+        //initialBackground.SetActive(true);
+    }
+
+    public void LoadPlayScene()
+    {
+        SceneManager.LoadScene(2);
+        ChangeStateToPlay();
     }
 
     public void StartGame()
-    {        
-        initialBackground.SetActive(false);
-        endgameBackground.SetActive(false);
-        
-        ballBase.ball.SetActive(true);
-        //ballBase.CanMove(true);
+    {
+        Debug.Log("Start game");
         Invoke(nameof(SetBallFree), timeToSetBallFree);
     }
 
     public void EndGame()
     {
-        ballBase.ball.SetActive(false);
-        ballBase.CanMove(false);
-        endgameBackground.SetActive(true);
-
+        AudioHelper.Instance.PitchAccelerator(1f);
+        BallBase.Instance.ball.SetActive(false);
+        BallBase.Instance.CanMove(false);
+        Invoke(nameof(LoadEndScene), 5);
         UpdateWinnerText();
+    }
+
+    void LoadEndScene()
+    {
+        SceneManager.LoadScene(3);
     }
 
     public void UpdateWinnerText()
     {
-        //winnerAnnouncer.text = (string) player.playerName + " é o vencedor!";
+        Debug.Log(winner);
+        //if (player01.currentPoints == endPoint)
+        winnerAnnouncer.text = winner + " é o(a) vencedor(a).";
+        //else
+            //winnerAnnouncer.text = player02.name + " é o(a) vencedor(a).";
     }
 
     public void RestartGame()
     {
-        SceneManager.LoadScene(0);
+        ChangeStateToPlay();
+        SceneManager.LoadScene(1);
+    }
+
+    public void ExitApplication()
+    {
+        Application.Quit();
     }
 
     public void ChangeStateToPlay()
     {
-        stateMachine.SwitchState(StateMachine.States.PLAYING);
+        StateMachine.Instance.SwitchState(StateMachine.States.PLAYING);
     }
 
     public void ChangeStateToEnd()
     {
-        stateMachine.SwitchState(StateMachine.States.END_GAME);
+        
+        StateMachine.Instance.SwitchState(StateMachine.States.END_GAME);
     }
 }

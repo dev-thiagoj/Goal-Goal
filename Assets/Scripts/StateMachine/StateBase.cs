@@ -1,20 +1,21 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StateBase
 {
     public virtual void OnStateEnter(object o = null)
     {
-        Debug.Log("On " + this + " Enter");
+        //Debug.Log("On " + this + " Enter");
     }
 
     public virtual void OnStateStay()
     {
-        Debug.Log("On " + this + " Enter");
+        //Debug.Log("On " + this + " Enter");
     }
 
     public virtual void OnStateExit()
     {
-        Debug.Log("On " + this + " Enter");
+        //Debug.Log("On " + this + " Enter");
     }
 }
 
@@ -22,6 +23,7 @@ public class StatePlaying : StateBase
 {
     public override void OnStateEnter(object o = null)
     {
+        Debug.Log("State Playing Enter");
         base.OnStateEnter(o);
         GameManager.Instance.StartGame();
     }

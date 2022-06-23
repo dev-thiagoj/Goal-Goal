@@ -24,12 +24,6 @@ public class ButtonColorBase : MonoBehaviour
         //GetComponent<Button>().onClick.AddListener(OnClick);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void OnClick()
     {
         myPlayer.ChangeColor(color);

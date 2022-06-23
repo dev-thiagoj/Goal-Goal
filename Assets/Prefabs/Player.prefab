@@ -12,8 +12,6 @@ GameObject:
   - component: {fileID: 990048279503635239}
   - component: {fileID: 990048279503635236}
   - component: {fileID: 990048279503635237}
-  - component: {fileID: 3899804997286678604}
-  - component: {fileID: 5418368606455337082}
   m_Layer: 5
   m_Name: Player
   m_TagString: Player
@@ -91,63 +89,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  characterController: {fileID: 0}
   uiPlayer: {fileID: 990048279503635236}
   playerName: 
   limitsX: {x: -4, y: 4}
   limitsY: {x: -4, y: 4}
-  KeyCodeMoveUp: 119
-  KeyCodeMoveDown: 115
-  KeyCodeMoveLeft: 276
-  KeyCodeMoveRight: 275
   uiTextPoints: {fileID: 0}
-  uiTextEndGame: {fileID: 0}
   gameManager: {fileID: 0}
-  myRigidBody2d: {fileID: 5418368606455337082}
   currentPoints: 0
---- !u!61 &3899804997286678604
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 990048279503635419}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 42, y: 200}
-  m_EdgeRadius: 0
---- !u!50 &5418368606455337082
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 990048279503635419}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
