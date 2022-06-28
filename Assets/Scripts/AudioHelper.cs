@@ -27,4 +27,14 @@ public class AudioHelper : Singleton<AudioHelper>
     {
 
     }
+
+    public void TurnSoundOff()
+    {
+        audioSource.Pause();
+    }
+
+    public void TurnSoundOn()
+    {
+        audioSource.Play();
+    }
 }

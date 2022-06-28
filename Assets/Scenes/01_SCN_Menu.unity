@@ -136,7 +136,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3540898016974359676, guid: 4e5758ec4d8483c498e0193987e21aac, type: 3}
       propertyPath: timeToSetBallFree
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3540898016974359677, guid: 4e5758ec4d8483c498e0193987e21aac, type: 3}
       propertyPath: m_Name
@@ -911,6 +911,18 @@ PrefabInstance:
     - target: {fileID: 6770440935694945178, guid: 6757793184adc734eaa28272d0f8f453, type: 3}
       propertyPath: m_PreserveAspect
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6770440935694945180, guid: 6757793184adc734eaa28272d0f8f453, type: 3}
+      propertyPath: color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6770440935694945180, guid: 6757793184adc734eaa28272d0f8f453, type: 3}
+      propertyPath: color.g
+      value: 0.07058824
+      objectReference: {fileID: 0}
+    - target: {fileID: 6770440935694945180, guid: 6757793184adc734eaa28272d0f8f453, type: 3}
+      propertyPath: color.r
+      value: 0.007843138
       objectReference: {fileID: 0}
     - target: {fileID: 6770440935694945180, guid: 6757793184adc734eaa28272d0f8f453, type: 3}
       propertyPath: myPlayer

@@ -15,7 +15,7 @@ public class GameManager : Singleton<GameManager>
 
     public int endPoint = 5;
 
-    public float timeToSetBallFree = 4f;
+    public float timeToSetBallFree = 6f;
 
     //public LoadSceneHelper sceneHelper;
 
@@ -126,6 +126,16 @@ public class GameManager : Singleton<GameManager>
     public void ExitApplication()
     {
         Application.Quit();
+    }
+
+    public void TurnSoundOff()
+    {
+        AudioHelper.Instance.TurnSoundOff();
+    }
+
+    public void TurnSoundOn()
+    {
+        AudioHelper.Instance.TurnSoundOn();
     }
 
     public void ChangeStateToPlay()

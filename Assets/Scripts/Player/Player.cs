@@ -5,11 +5,10 @@ using System.Collections.Generic;
 
 public class Player : MonoBehaviour
 {
-    //public Player player01, player02;
-    //public CharacterController characterController;
     public Rigidbody2D rigidbody2D;
 
     public Image uiPlayer;
+    //public SpriteRenderer uiPlayer;
     public string playerName;
 
     [Header("Bounds")]
@@ -57,8 +56,6 @@ public class Player : MonoBehaviour
         Bounds();
         if(_playing) AudioPitchModifier();
         if(_playing) FinalPoint();
-
-        Debug.Log(gameObject.name + " = " + currentPoints);
     }
 
     public void ResetPlayer()
@@ -105,6 +102,11 @@ public class Player : MonoBehaviour
     {
         uiPlayer.color = c;
     }
+
+    /*public void ChangeSprite(SpriteRenderer sr)
+    {
+        uiPlayer = sr;
+    }*/
 
     public void AddPoint()
     {
