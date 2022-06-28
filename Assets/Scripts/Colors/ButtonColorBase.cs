@@ -9,23 +9,25 @@ public class ButtonColorBase : MonoBehaviour
 
     [Header("References")]
     public Image uiImage;
+    //public SpriteRenderer spriteRenderer;
 
     public Player myPlayer;
 
     private void OnValidate()
     {
-
         uiImage = GetComponent<Image>();
+        //spriteRenderer = GetComponent<SpriteRenderer>();
     }
     void Start()
     {
         uiImage.color = color;
-
+        
         //GetComponent<Button>().onClick.AddListener(OnClick);
     }
 
     public void OnClick()
     {
         myPlayer.ChangeColor(color);
+        //myPlayer.ChangeSprite(spriteRenderer);
     }
 }

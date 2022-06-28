@@ -3,7 +3,7 @@ using UnityEngine;
 public class TriggerPoint : MonoBehaviour
 {
     public Player player;
-    public ParticleSystem particleSystem;
+    public ParticleSystem newParticleSystem;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -19,7 +19,7 @@ public class TriggerPoint : MonoBehaviour
         {
             StateMachine.Instance.ResetPosition();
             player.AddPoint();
-            particleSystem.Play();
+            newParticleSystem.Play();
         }
     }
 
