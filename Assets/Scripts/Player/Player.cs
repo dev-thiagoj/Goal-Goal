@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     public Rigidbody2D rigidbody2D;
 
     public Image uiPlayer;
+    public int indexColor;
     //public SpriteRenderer uiPlayer;
     public string playerName;
 
@@ -47,6 +48,7 @@ public class Player : MonoBehaviour
     private void Start()
     {
         GetBounds();
+        ChangeColor(indexColor);
     }
 
     void Update()
@@ -96,9 +98,11 @@ public class Player : MonoBehaviour
         player.name = s;
     }*/
 
-    public void ChangeColor(Color c)
+    public void ChangeColor(int i)
     {
-        uiPlayer.color = c;
+        //uiPlayer.color = c;
+
+        uiPlayer.color = SetColorHelper.Instance.colors[i];
     }
 
     /*public void ChangeSprite(SpriteRenderer sr)

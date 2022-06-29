@@ -11,7 +11,9 @@ public class ButtonColorBase : MonoBehaviour
     public Image uiImage;
     //public SpriteRenderer spriteRenderer;
 
-    public Player myPlayer;
+    //public Player myPlayer;
+
+    //public List<Image> images;
 
     private void OnValidate()
     {
@@ -25,9 +27,10 @@ public class ButtonColorBase : MonoBehaviour
         //GetComponent<Button>().onClick.AddListener(OnClick);
     }
 
-    public void OnClick()
+    public void OnClick(int i)
     {
-        myPlayer.ChangeColor(color);
-        //myPlayer.ChangeSprite(spriteRenderer);
+        //myPlayer.ChangeColor(color);
+
+        SetColorHelper.Instance.colors[i] = color;
     }
 }
