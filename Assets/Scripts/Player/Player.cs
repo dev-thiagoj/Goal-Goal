@@ -12,8 +12,6 @@ public class Player : MonoBehaviour
     public string playerName;
 
     [Header("Bounds")]
-    //public Vector2 limitsX = new Vector2(-4f, 4f);
-    //public Vector2 limitsY = new Vector2(-4f, 4f);
     public Transform rightBoundTransform;
     private Vector3 rightBoundVec;
     public Transform leftBoundTransform;
