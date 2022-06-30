@@ -20,7 +20,7 @@ public class PunishmentsBase : MonoBehaviour
         punishments[6] = "Lamber o próprio cotovelo";
         punishments[7] = "Por a ponta da lingua no nariz";
         punishments[8] = "Deixar o vencedor chutar sua canela e não pode chorar";
-        punishments[9] = "teste 08";
+        punishments[9] = "Sem castigo, deu sorte";
     }
 
     // Start is called before the first frame update
@@ -31,6 +31,6 @@ public class PunishmentsBase : MonoBehaviour
 
     public void GetPunishment()
     {
-        uiTextPunishment.text = punishments[Random.Range(0, 9)];
+        uiTextPunishment.text = punishments[Random.Range(0, punishments.Length)];
     }
 }
