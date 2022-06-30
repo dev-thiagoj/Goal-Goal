@@ -5480,7 +5480,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2852780982556204569, guid: 5863d6609a6517149ad83aac9d576c4a, type: 3}
       propertyPath: m_Name
-      value: Player_01
+      value: Player 01
       objectReference: {fileID: 0}
     - target: {fileID: 2852780982556204775, guid: 5863d6609a6517149ad83aac9d576c4a, type: 3}
       propertyPath: uiTextPoints
@@ -5511,22 +5511,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 428189086}
     m_Modifications:
-    - target: {fileID: 6574054684971677476, guid: 63e1c891f0077f343997d9f7cd2bf759, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6574054684971677476, guid: 63e1c891f0077f343997d9f7cd2bf759, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6574054684971677476, guid: 63e1c891f0077f343997d9f7cd2bf759, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6574054684971677477, guid: 63e1c891f0077f343997d9f7cd2bf759, type: 3}
-      propertyPath: indexColor
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6574054684971677477, guid: 63e1c891f0077f343997d9f7cd2bf759, type: 3}
       propertyPath: uiTextPoints
       value: 
@@ -5633,7 +5617,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6574054684971677659, guid: 63e1c891f0077f343997d9f7cd2bf759, type: 3}
       propertyPath: m_Name
-      value: Player_02
+      value: Player 02
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63e1c891f0077f343997d9f7cd2bf759, type: 3}

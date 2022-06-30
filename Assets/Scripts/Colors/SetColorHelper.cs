@@ -7,11 +7,7 @@ using Singleton;
 public class SetColorHelper : Singleton<SetColorHelper>
 {
     public List<Color> colors;
-    private Color color;
-    //private Image image;
-
-    public GameObject Player01;
-    public GameObject Player02;
+    private Color color = Color.white;
 
     protected override void Awake()
     {

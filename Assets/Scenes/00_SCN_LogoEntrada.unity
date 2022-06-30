@@ -795,7 +795,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3540898016974359676, guid: 4e5758ec4d8483c498e0193987e21aac, type: 3}
       propertyPath: endPoint
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3540898016974359676, guid: 4e5758ec4d8483c498e0193987e21aac, type: 3}
       propertyPath: timeToSetBallFree
