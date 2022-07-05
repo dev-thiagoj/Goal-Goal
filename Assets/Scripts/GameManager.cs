@@ -1,8 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
-using DevUtills.Core.Singleton;
+using Singleton;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -49,6 +48,7 @@ public class GameManager : Singleton<GameManager>
     {
         Invoke(nameof(SetBallFree), timeToSetBallFree);
     }
+    
 
     public void EndGame()
     {
