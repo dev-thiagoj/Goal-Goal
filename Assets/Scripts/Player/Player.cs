@@ -8,12 +8,10 @@ public class Player : MonoBehaviour
     public Rigidbody2D rigidbody2D;
 
     public Image uiPlayer;
-    //public SpriteRenderer uiPlayer;
+    public int indexColor;
     public string playerName;
 
     [Header("Bounds")]
-    //public Vector2 limitsX = new Vector2(-4f, 4f);
-    //public Vector2 limitsY = new Vector2(-4f, 4f);
     public Transform rightBoundTransform;
     private Vector3 rightBoundVec;
     public Transform leftBoundTransform;
@@ -25,7 +23,6 @@ public class Player : MonoBehaviour
 
     [Header("Texts")]
     public TextMeshProUGUI uiTextPoints;
-    //public TextMeshProUGUI uiTextEndGame;
 
     public int currentPoints;
 
@@ -35,7 +32,6 @@ public class Player : MonoBehaviour
 
     private void OnValidate()
     {
-        //if (characterController == null) characterController = GetComponent<CharacterController>();
         if (rigidbody2D == null) rigidbody2D = GetComponent<Rigidbody2D>();
         if (audioSource == null) audioSource = GetComponent<AudioSource>();
     }
@@ -43,12 +39,12 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         ResetPlayer();
-        //initialPosition = transform.position;
     }
 
     private void Start()
     {
         GetBounds();
+        ChangeColor(indexColor);
     }
 
     void Update()
@@ -78,12 +74,6 @@ public class Player : MonoBehaviour
         _pos.y = rigidbody2D.transform.position.y;
         _pos.x = rigidbody2D.transform.position.x;
 
-        ///if (_pos.x < limitsX.x) _pos.x = limitsX.x;
-        //else if (_pos.x > limitsX.y) _pos.x = limitsX.y;
-
-        //if (_pos.y < limitsY.x) _pos.y = limitsY.x;
-        //else if (_pos.y > limitsY.y) _pos.y = limitsY.y;
-
         if (_pos.x > rightBoundVec.x) _pos.x = rightBoundVec.x;
         else if (_pos.x < leftBoundVec.x) _pos.x = leftBoundVec.x;
 
@@ -98,15 +88,10 @@ public class Player : MonoBehaviour
         player.name = s;
     }*/
 
-    public void ChangeColor(Color c)
+    public void ChangeColor(int i)
     {
-        uiPlayer.color = c;
+        uiPlayer.color = SetColorHelper.Instance.colors[i];
     }
-
-    /*public void ChangeSprite(SpriteRenderer sr)
-    {
-        uiPlayer = sr;
-    }*/
 
     public void AddPoint()
     {
@@ -143,11 +128,9 @@ public class Player : MonoBehaviour
     {
         if (currentPoints == GameManager.Instance.endPoint)
         {
-            //player.name = (string) playerName;
-            GameManager.Instance.winner = gameObject.name;
             _playing = false;
             PlayFireworksHelper.Instance.StartFireworks();
-            BallBase.Instance.gameObject.SetActive(false);
+            //BallBase.Instance.gameObject.SetActive(false);
             Player_MovementManager.Instance.playerSpeed = 0;
             GameManager.Instance.ChangeStateToEnd();
         }

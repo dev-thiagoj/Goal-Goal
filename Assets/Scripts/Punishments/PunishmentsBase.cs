@@ -2,15 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Singleton;
 
-public class PunishmentsBase : MonoBehaviour
+public class PunishmentsBase : Singleton<PunishmentsBase>
 {
-    private readonly string[] punishments = new string[10];
+    private readonly string[] punishments = new string[9];
 
     public TextMeshProUGUI uiTextPunishment;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
+
         punishments[0] = "Colocar dois dedos dentro de uma narina";
         punishments[1] = "Girar 10x e no fim por o indicador na ponta do nariz";
         punishments[2] = "Realizar 20 polichinelos";
@@ -19,18 +22,16 @@ public class PunishmentsBase : MonoBehaviour
         punishments[5] = "Dar 3 voltas completas no vencedor pulando em um pé só";
         punishments[6] = "Lamber o próprio cotovelo";
         punishments[7] = "Por a ponta da lingua no nariz";
-        punishments[8] = "Deixar o vencedor chutar sua canela e não pode chorar";
-        punishments[9] = "teste 08";
+        punishments[8] = "Sem castigo, deu sorte";
     }
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         GetPunishment();
     }
 
     public void GetPunishment()
     {
-        uiTextPunishment.text = punishments[Random.Range(0, 9)];
+        uiTextPunishment.text = punishments[Random.Range(0, punishments.Length)];
     }
 }

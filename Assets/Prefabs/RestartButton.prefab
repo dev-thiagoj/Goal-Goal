@@ -146,6 +146,7 @@ GameObject:
   - component: {fileID: 1795784796370781094}
   - component: {fileID: 2810999015422823588}
   - component: {fileID: 6136818417050555814}
+  - component: {fileID: 2134102040633112360}
   m_Layer: 5
   m_Name: RestartButton
   m_TagString: Untagged
@@ -255,9 +256,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3540898016974359676, guid: 4e5758ec4d8483c498e0193987e21aac, type: 3}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: DebugRestartButton
+      - m_Target: {fileID: 2134102040633112360}
+        m_TargetAssemblyTypeName: RewardedAdsButton, Assembly-CSharp
+        m_MethodName: ShowAd
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -267,3 +268,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &2134102040633112360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7095207029635100936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c20a4d02cbc2c940a56d3398feabf25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _showAdButton: {fileID: 6136818417050555814}
+  _androidAdUnitId: Rewarded_Android
+  _iOSAdUnitId: Rewarded_iOS
