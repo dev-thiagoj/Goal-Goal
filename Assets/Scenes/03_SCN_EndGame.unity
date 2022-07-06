@@ -1499,7 +1499,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2804166182784181443, guid: 28a9355e632f7cd469d8fc148df57918, type: 3}
       propertyPath: m_text
-      value: Jogar
+      value: inicio
       objectReference: {fileID: 0}
     - target: {fileID: 2804166182784181443, guid: 28a9355e632f7cd469d8fc148df57918, type: 3}
       propertyPath: m_fontSize
@@ -1630,14 +1630,23 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6136818417050555814, guid: 28a9355e632f7cd469d8fc148df57918, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3540898016974359676, guid: 4e5758ec4d8483c498e0193987e21aac, type: 3}
+    - target: {fileID: 6136818417050555814, guid: 28a9355e632f7cd469d8fc148df57918, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LoadMenuScene
+      value: RestartGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 6136818417050555814, guid: 28a9355e632f7cd469d8fc148df57918, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7095207029635100936, guid: 28a9355e632f7cd469d8fc148df57918, type: 3}
       propertyPath: m_Name
       value: RestartButton
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2134102040633112360, guid: 28a9355e632f7cd469d8fc148df57918, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 28a9355e632f7cd469d8fc148df57918, type: 3}
 --- !u!1001 &2899774217013744799
 PrefabInstance:
@@ -1700,7 +1709,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2899774217229756720, guid: 20c89c236ede0ee41bc3c3b7468b43ce, type: 3}
       propertyPath: m_SizeDelta.x
-      value: -288.833
+      value: -315.961
       objectReference: {fileID: 0}
     - target: {fileID: 2899774217229756720, guid: 20c89c236ede0ee41bc3c3b7468b43ce, type: 3}
       propertyPath: m_SizeDelta.y
@@ -1736,7 +1745,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2899774217229756720, guid: 20c89c236ede0ee41bc3c3b7468b43ce, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 83.59595
+      value: 97.160034
       objectReference: {fileID: 0}
     - target: {fileID: 2899774217229756720, guid: 20c89c236ede0ee41bc3c3b7468b43ce, type: 3}
       propertyPath: m_AnchoredPosition.y

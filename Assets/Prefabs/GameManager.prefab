@@ -10,8 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3540898016974359679}
   - component: {fileID: 3540898016974359676}
-  - component: {fileID: 4659321608847159570}
-  - component: {fileID: 5251781512877508573}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -29,7 +27,6 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 931.3897, y: 488.30606, z: -21.533123}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -47,35 +44,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   endPoint: 5
-  timeToSetBallFree: 6
-  adInterstitial: {fileID: 5251781512877508573}
---- !u!114 &4659321608847159570
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3540898016974359677}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 555665706c8c3684dad52ae7507eddec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _androidGameId: 4821559
-  _iOSGameId: 4821558
-  _testMode: 1
-  adInterstitial: {fileID: 5251781512877508573}
---- !u!114 &5251781512877508573
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3540898016974359677}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75e9e77620cd4fd41bd581ddd1104162, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _androidAdUnityId: Interstitial_Android
-  _iOsAdUnityId: Interstitial_iOS
+  timeToSetBallFree: 3

@@ -65,7 +65,7 @@ public class GameManager : Singleton<GameManager>
 
     public void RestartGame()
     {
-        ChangeStateToPlay();
+        //ChangeStateToPlay();
         SceneManager.LoadScene(1);
     }
 

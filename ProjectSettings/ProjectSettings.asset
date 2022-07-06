@@ -147,6 +147,12 @@ PlayerSettings:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -776,8 +782,8 @@ PlayerSettings:
   cloudServicesEnabled:
     Build: 0
     Collab: 0
-    Game Performance: 0
-    Legacy Analytics: 0
+    Game Performance: 1
+    Legacy Analytics: 1
     Purchasing: 0
     UDP: 0
     UNet: 1
