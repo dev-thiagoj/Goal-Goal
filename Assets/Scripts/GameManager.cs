@@ -9,6 +9,7 @@ public class GameManager : Singleton<GameManager>
 
     public float timeToSetBallFree = 6f;
 
+
     protected override void Awake()
     {
         base.Awake();
