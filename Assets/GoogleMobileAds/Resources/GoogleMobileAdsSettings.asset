@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   adMobAndroidAppId: ca-app-pub-9050671709974299~1041476470
   adMobIOSAppId: 
-  delayAppMeasurementInit: 0
+  delayAppMeasurementInit: 1

@@ -4,29 +4,35 @@ using UnityEngine;
 using UnityEngine.Events;
 using GoogleMobileAds.Api;
 using System;
+using Singleton;
 
-public class AdMobInterstitial : MonoBehaviour
+public class AdMobInterstitial : Singleton<AdMobInterstitial>
 {
+    public string adUnitId = "ca-app-pub-9050671709974299~1041476470";
+
+    public UnityEvent OnAdClosedEvent;
+
     private InterstitialAd interstitial;
 
-    private void Awake()
+    protected override void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        base.Awake();
 
+        //DontDestroyOnLoad(gameObject);
         RequestAndLoadInterstitial();
     }
 
-    private void RequestAndLoadInterstitial()
+    public void RequestAndLoadInterstitial()
     {
-        Debug.Log("Requesting Insterstitial ad.");
+        //Debug.Log("Requesting Insterstitial ad.");
 
-#if UNITY_ANDROID
-        string adUnitId = "ca-app-pub-9050671709974299~1041476470";
+/*#if UNITY_ANDROID
+        string adUnitId = "ca-app-pub-3940256099942544/8691691433";
 #elif UNITY_IPHONE
         string adUnitId = "unexpected_platform";
 #else
         string adUnitId = "unexpected_platform";
-#endif
+#endif*/
 
         // Clean up interstitial before using it
         if (interstitial != null) interstitial.Destroy();
@@ -50,6 +56,13 @@ public class AdMobInterstitial : MonoBehaviour
         this.interstitial.LoadAd(request);
     }
 
+    private void Update()
+    {
+        //Debug.Log(interstitial);
+        //Debug.Log(interstitial.IsLoaded());
+
+    }
+
     public void ShowInterstitialAdMob()
     {
         if (interstitial != null && interstitial.IsLoaded())
@@ -59,29 +72,31 @@ public class AdMobInterstitial : MonoBehaviour
         else
         {
             Debug.Log("Interstitial ad is not ready yet.");
+            RequestAndLoadInterstitial();
         }
     }
 
     public void HandleOnAdLoaded(object sender, EventArgs args)
     {
-        Debug.Log("Interstitial Ad Loaded");
+        //Debug.Log("Interstitial Ad Loaded");
     }
 
     public void HandleOnAdFailedToLoad(object sender, AdFailedToLoadEventArgs args)
     {
-        Debug.Log("Interstitial Ad Load Failed: "
-                            + args);
+        //Debug.Log("Interstitial Ad Load Failed: "
+        //                    + args);
     }
 
     public void HandleOnAdOpening(object sender, EventArgs args)
     {
-        Debug.Log("Interstitial Ad Opening");
+        //Debug.Log("Interstitial Ad Opening");
     }
 
     public void HandleOnAdClosed(object sender, EventArgs args)
     {
-        Debug.Log("Interstitial Ad Closed");
-        GameManager.Instance.LoadPlayScene();
-        GameManager.Instance.ChangeStateToPlay();
+        //Debug.Log("Interstitial Ad Closed");
+        //GameManager.Instance.LoadPlayScene();
+        //GameManager.Instance.ChangeStateToPlay();
+        OnAdClosedEvent.Invoke();
     }
 }

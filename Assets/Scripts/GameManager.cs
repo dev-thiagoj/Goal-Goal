@@ -42,7 +42,7 @@ public class GameManager : Singleton<GameManager>
     public void LoadPlayScene()
     {
         SceneManager.LoadScene(2);
-        ChangeStateToPlay();
+        //ChangeStateToPlay();
     }
 
     public void StartGame()
